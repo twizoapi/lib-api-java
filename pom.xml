@@ -4,7 +4,7 @@
 
     <groupId>com.twizo</groupId>
     <artifactId>lib-api-java</artifactId>
-    <version>0.1.0</version>
+    <version>0.1.1-SNAPSHOT</version>
     <packaging>pom</packaging>
     <url>https://www.twizo.com/</url>
     <name>Twizo Api</name>
