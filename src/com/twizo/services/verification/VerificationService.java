@@ -1,5 +1,7 @@
 package com.twizo.services.verification;
 
+import com.twizo.exceptions.TwizoJsonParseException;
+import com.twizo.exceptions.VerificationException;
 import com.twizo.models.Verification;
 
 /**
@@ -12,12 +14,14 @@ import com.twizo.models.Verification;
  */
 public interface VerificationService {
 
-  /**
-   * Parse verification data received from the server to a Verification object
-   *
-   * @param data data to parse
-   * @return Verification instance
-   */
-  Verification parseVerification(String data);
+    /**
+     * Parse verification data received from the server to a Verification object
+     *
+     * @param data data to parse
+     * @return Verification instance
+     * @throws VerificationException   when something goes wrong during the process
+     * @throws TwizoJsonParseException when something goes wrong during json parsing
+     */
+    Verification parseVerification(String data) throws VerificationException, TwizoJsonParseException;
 
 }

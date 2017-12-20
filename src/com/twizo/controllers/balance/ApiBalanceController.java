@@ -2,49 +2,42 @@ package com.twizo.controllers.balance;
 
 import com.twizo.controllers.TwizoController;
 import com.twizo.dataaccess.RequestType;
-import com.twizo.exceptions.TwizoException;
+import com.twizo.dataaccess.Worker;
+import com.twizo.exceptions.ApplicationException;
+import com.twizo.exceptions.BalanceException;
+import com.twizo.exceptions.TwizoCallException;
+import com.twizo.exceptions.TwizoJsonParseException;
 import com.twizo.models.Balance;
-import com.twizo.services.balance.BalanceServiceFactory;
 import com.twizo.services.balance.BalanceService;
+import com.twizo.services.balance.JsonBalanceService;
 
 /**
  * This file is part of the Twizo Java API
  *
- * For the full copyright and licence information, please view the Licence file that was distributed
- * with this source code
+ * For the full copyright and licence information, please view the Licence file that was distributed with this source code
  *
  * (c) Twizo - info@twizo.com
  */
-class ApiBalanceController extends TwizoController implements
-    BalanceController {
+public class ApiBalanceController extends TwizoController implements BalanceController {
 
-  /**
-   * BalanceController instance to parse server results
-   */
-  private final BalanceService balanceService;
+    private final BalanceService balanceService;
 
-  /**
-   * Create a new ApiBalanceController instance
-   *
-   * @param apiHost Preferred API Node
-   * @param apiKey Accesskey to the API
-   */
-  ApiBalanceController(String apiHost, String apiKey) {
-    super(apiHost, apiKey);
+    public ApiBalanceController(Worker worker) {
+        super(worker);
+        balanceService = new JsonBalanceService();
+    }
 
-    BalanceServiceFactory balanceServiceFactory = new BalanceServiceFactory();
-    balanceService = balanceServiceFactory.getInstance();
-  }
-
-  /**
-   * Get Balance of the user and parse it to a Balance object
-   *
-   * @return Balance object with information about the balance inside
-   * @throws TwizoException when something goes wrong during the process
-   */
-  @Override
-  public Balance getCreditBalance() throws TwizoException {
-    return balanceService
-        .parseCreditBalance(worker.execute("wallet/getbalance", null, RequestType.GET));
-  }
+    /**
+     * Get Balance of the user and parse it to a Balance object
+     *
+     * @return Balance object with information about the application inside
+     * @throws TwizoCallException      when something goes wrong during calling the API
+     * @throws TwizoJsonParseException when something goes wrong during JSON parsing
+     * @throws BalanceException        when something goes wrong during the process
+     */
+    @Override
+    public Balance getCreditBalance() throws TwizoCallException, TwizoJsonParseException, BalanceException {
+        return balanceService
+                .parseCreditBalance(worker.execute("wallet/getbalance", null, RequestType.GET));
+    }
 }

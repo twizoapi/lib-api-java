@@ -10,20 +10,20 @@ package com.twizo.dataaccess.jsonparams;
  */
 public class BackupParams {
 
-  /**
-   * The identifier you used to generate the backup codes for the user.
-   */
-  private String identifier;
+    /**
+     * The identifier you used to generate the backup codes for the user.
+     */
+    private String identifier;
 
-  public BackupParams(String identifier) {
-    this.identifier = identifier;
-  }
+    public BackupParams(String identifier) {
+        this.identifier = identifier;
+    }
 
-  public String getIdentifier() {
-    return identifier;
-  }
+    public String getIdentifier() {
+        return identifier;
+    }
 
-  public void setIdentifier(String identifier) {
-    this.identifier = identifier;
-  }
+    public void setIdentifier(String identifier) {
+        this.identifier = identifier;
+    }
 }

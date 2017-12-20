@@ -12,48 +12,48 @@ import java.util.Arrays;
  */
 public class BackupCode {
 
-  /**
-   * Unique identifier of the user
-   */
-  private String identifier;
+    /**
+     * Unique identifier of the user
+     */
+    private String identifier;
 
-  /**
-   * Amount of backup codes left for a specific user
-   */
-  private Integer amountOfCodesLeft;
+    /**
+     * Amount of backup codes left for a specific user
+     */
+    private Integer amountOfCodesLeft;
 
-  /**
-   * String array which contains remaining backup codes
-   */
-  private String[] codes;
+    /**
+     * String array which contains remaining backup codes
+     */
+    private String[] codes;
 
-  /**
-   * String which tells when backup codes were created
-   */
-  private String createdDateTime;
+    /**
+     * String which tells when backup codes were created
+     */
+    private String createdDateTime;
 
-  public String getIdentifier() {
-    return identifier;
-  }
+    public String getIdentifier() {
+        return identifier;
+    }
 
-  public Integer getAmountOfCodesLeft() {
-    return amountOfCodesLeft;
-  }
+    public Integer getAmountOfCodesLeft() {
+        return amountOfCodesLeft;
+    }
 
-  public String[] getCodes() {
-    return codes;
-  }
+    public String[] getCodes() {
+        return codes;
+    }
 
-  public String getCreatedDateTime() {
-    return createdDateTime;
-  }
+    public String getCreatedDateTime() {
+        return createdDateTime;
+    }
 
-  @Override
-  public String toString() {
-    return "BackupCode{" + "identifier='" + identifier + '\'' +
-        ", amountOfCodesLeft=" + amountOfCodesLeft +
-        ", codes=" + Arrays.toString(codes) +
-        ", createdDateTime='" + createdDateTime + '\'' +
-        '}';
-  }
+    @Override
+    public String toString() {
+        return "BackupCode{" + "identifier='" + identifier + '\'' +
+                ", amountOfCodesLeft=" + amountOfCodesLeft +
+                ", codes=" + Arrays.toString(codes) +
+                ", createdDateTime='" + createdDateTime + '\'' +
+                '}';
+    }
 }

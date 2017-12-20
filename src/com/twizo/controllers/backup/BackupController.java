@@ -1,6 +1,8 @@
 package com.twizo.controllers.backup;
 
-import com.twizo.exceptions.TwizoException;
+import com.twizo.exceptions.BackupException;
+import com.twizo.exceptions.TwizoCallException;
+import com.twizo.exceptions.TwizoJsonParseException;
 import com.twizo.models.BackupCode;
 import com.twizo.models.BackupCodeResult;
 
@@ -14,44 +16,59 @@ import com.twizo.models.BackupCodeResult;
  */
 public interface BackupController {
 
-  /**
-   * Create new backup codes and parse them to a BackupCode object
-   *
-   * @param identifier unique identifier of the user
-   * @return BackupCode instance with backup codes
-   */
-  BackupCode createBackupCodes(String identifier) throws TwizoException;
+    /**
+     * Create new backup codes and parse them to a BackupCode object
+     *
+     * @param identifier unique identifier of the user
+     * @return BackupCode instance with backup codes
+     * @throws TwizoCallException      when something goes wrong during calling the API
+     * @throws TwizoJsonParseException when something goes wrong during JSON parsing
+     * @throws BackupException         when something goes wrong during the process
+     */
+    BackupCode createBackupCodes(String identifier) throws TwizoCallException, TwizoJsonParseException, BackupException;
 
-  /**
-   * Verify an existing backup code
-   *
-   * @param identifier unique identifier of the user
-   * @param backupCode backup code to be verified
-   * @return result of the verification parsed to a BackupCodeResult object
-   */
-  BackupCodeResult verifyBackupCode(String identifier, String backupCode) throws TwizoException;
+    /**
+     * Verify an existing backup code
+     *
+     * @param identifier unique identifier of the user
+     * @param backupCode backup code to be verified
+     * @return result of the verification parsed to a BackupCodeResult object
+     * @throws TwizoCallException      when something goes wrong during calling the API
+     * @throws TwizoJsonParseException when something goes wrong during JSON parsing
+     * @throws BackupException         when something goes wrong during the process
+     */
+    BackupCodeResult verifyBackupCode(String identifier, String backupCode) throws TwizoCallException, TwizoJsonParseException, BackupException;
 
-  /**
-   * Get the remaining backup codes of a user
-   *
-   * @param identifier unique identifier of the user
-   * @return BackupCode instance
-   */
-  BackupCode getRemainingBackupCodes(String identifier) throws TwizoException;
+    /**
+     * Get the remaining backup codes of a user
+     *
+     * @param identifier unique identifier of the user
+     * @return BackupCode instance
+     * @throws TwizoCallException      when something goes wrong during calling the API
+     * @throws TwizoJsonParseException when something goes wrong during JSON parsing
+     * @throws BackupException         when something goes wrong during the process
+     */
+    BackupCode getRemainingBackupCodes(String identifier) throws TwizoCallException, TwizoJsonParseException, BackupException;
 
-  /**
-   * Update the backup codes of the user and parse the new ones to a BackupCode object
-   *
-   * @param identifier unique identifier of the user
-   * @return BackupCode instance with backup codes
-   */
-  BackupCode updateBackupCodes(String identifier) throws TwizoException;
+    /**
+     * Update the backup codes of the user and parse the new ones to a BackupCode object
+     *
+     * @param identifier unique identifier of the user
+     * @return BackupCode instance with backup codes
+     * @throws TwizoCallException      when something goes wrong during calling the API
+     * @throws TwizoJsonParseException when something goes wrong during JSON parsing
+     * @throws BackupException         when something goes wrong during the process
+     */
+    BackupCode updateBackupCodes(String identifier) throws TwizoCallException, TwizoJsonParseException, BackupException;
 
-  /**
-   * Delete all existing backup codes of a user and parse the result to a BackupCode object
-   *
-   * @param identifier unique identifier of the user
-   */
-  void deleteBackupCodes(String identifier) throws TwizoException;
+    /**
+     * Delete all existing backup codes of a user and parse the result to a BackupCode object
+     *
+     * @param identifier unique identifier of the user
+     * @throws TwizoCallException      when something goes wrong during calling the API
+     * @throws TwizoJsonParseException when something goes wrong during JSON parsing
+     * @throws BackupException         when something goes wrong during the process
+     */
+    void deleteBackupCodes(String identifier) throws TwizoCallException, TwizoJsonParseException, BackupException;
 
 }

@@ -12,9 +12,10 @@ import com.google.gson.Gson;
  */
 public abstract class AbstractService {
 
-  protected final Gson gson;
+    protected final Gson gson;
 
-  public AbstractService() {
-    this.gson = new Gson();
-  }
+    public AbstractService() {
+        this.gson = new Gson();
+    }
+
 }

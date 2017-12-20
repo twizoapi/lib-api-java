@@ -1,5 +1,8 @@
 package com.twizo.services.verification;
 
+import com.google.gson.JsonSyntaxException;
+import com.twizo.exceptions.TwizoJsonParseException;
+import com.twizo.exceptions.VerificationException;
 import com.twizo.models.Verification;
 import com.twizo.services.AbstractService;
 
@@ -11,16 +14,25 @@ import com.twizo.services.AbstractService;
  *
  * (c) Twizo - info@twizo.com
  */
-class JsonVerificationService extends AbstractService implements VerificationService {
+public class JsonVerificationService extends AbstractService implements VerificationService {
 
-  /**
-   * Parse verification data received from the server to a Verification object
-   *
-   * @param data data to parse
-   * @return Verification instance
-   */
-  @Override
-  public Verification parseVerification(String data) {
-    return gson.fromJson(data, Verification.class);
-  }
+    /**
+     * Parse verification data received from the server to a Verification object
+     *
+     * @param data data to parse
+     * @return Verification instance
+     * @throws VerificationException   when something goes wrong during the process
+     * @throws TwizoJsonParseException when something goes wrong during json parsing
+     */
+    @Override
+    public Verification parseVerification(String data) throws VerificationException, TwizoJsonParseException {
+        if (data != null) {
+            try {
+                return gson.fromJson(data, Verification.class);
+            } catch (JsonSyntaxException ex) {
+                throw new TwizoJsonParseException(ex);
+            }
+        }
+        throw new VerificationException("Twizo didn't response as expected, please try again");
+    }
 }

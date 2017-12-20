@@ -10,19 +10,19 @@ package com.twizo.controllers.widget;
  */
 public enum WidgetSessionType {
 
-  /**
-   * Verification is done by sms or call
-   */
-  RECIPIENT,
+    /**
+     * Verification is done by sms or call
+     */
+    RECIPIENT,
 
-  /**
-   * Verification is done by backup code
-   */
-  BACKUPCODE,
+    /**
+     * Verification is done by backup code
+     */
+    BACKUPCODE,
 
-  /**
-   * Verification is done by both
-   */
-  BOTH
+    /**
+     * Verification is done by both
+     */
+    BOTH
 
 }

@@ -1,6 +1,7 @@
 package com.twizo.services.numberlookup;
 
-import com.twizo.exceptions.TwizoException;
+import com.twizo.exceptions.NumberLookupException;
+import com.twizo.exceptions.TwizoJsonParseException;
 import com.twizo.models.NumberLookup;
 import javafx.util.Pair;
 
@@ -14,30 +15,34 @@ import javafx.util.Pair;
  */
 public interface NumberLookupService {
 
-  /**
-   * Parse creation of NumberLookup results to a NumberLookup array
-   *
-   * @param data data which has to be parsed
-   * @return Array of NumberLookups with data received after the request
-   */
-  NumberLookup[] parseNewNumberLookup(String data);
+    /**
+     * Parse creation of NumberLookup results to a NumberLookup array
+     *
+     * @param data data which has to be parsed
+     * @return Array of NumberLookups with data received after the request
+     * @throws TwizoJsonParseException when something goes wrong during the process
+     * @throws NumberLookupException   when something goes wrong during parsing the JSON
+     */
+    NumberLookup[] parseNewNumberLookup(String data) throws TwizoJsonParseException, NumberLookupException;
 
-  /**
-   * Parse the data result of status request to a NumberLookup instance
-   *
-   * @param data data which has to be parsed
-   * @return Instance of NumberLookup received after doing the GET request to get information about
-   * numberLookups
-   * @throws TwizoException when something goes wrong during the process
-   */
-  NumberLookup parseNumberLookup(String data) throws TwizoException;
+    /**
+     * Parse the data result of status request to a NumberLookup instance
+     *
+     * @param data data which has to be parsed
+     * @return Instance of NumberLookup received after doing the GET request to get information about
+     * numberLookups
+     * @throws TwizoJsonParseException when something goes wrong during the process
+     * @throws NumberLookupException   when something goes wrong during parsing the JSON
+     */
+    NumberLookup parseNumberLookup(String data) throws TwizoJsonParseException, NumberLookupException;
 
-  /**
-   * Parse polling results to a NumberLookup array
-   *
-   * @param data data which has to be parsed
-   * @return Array of NumberLookups
-   * @throws TwizoException when something goes wrong during the process
-   */
-  Pair<String, NumberLookup[]> parseResultArray(String data) throws TwizoException;
+    /**
+     * Parse polling results to a NumberLookup array
+     *
+     * @param data data which has to be parsed
+     * @return Array of NumberLookups
+     * @throws TwizoJsonParseException when something goes wrong during the process
+     * @throws NumberLookupException   when something goes wrong during parsing the JSON
+     */
+    Pair<String, NumberLookup[]> parseResultArray(String data) throws TwizoJsonParseException, NumberLookupException;
 }

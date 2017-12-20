@@ -10,13 +10,13 @@ package com.twizo.dataaccess;
  */
 public enum Node {
 
-  /**
-   * Connect to the Asian API node
-   */
-  ASIA,
+    /**
+     * Connect to the Asian API node
+     */
+    ASIA,
 
-  /**
-   * Connect to the European API node
-   */
-  EUROPE
+    /**
+     * Connect to the European API node
+     */
+    EUROPE
 }

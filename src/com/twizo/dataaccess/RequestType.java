@@ -10,23 +10,23 @@ package com.twizo.dataaccess;
  */
 public enum RequestType {
 
-  /**
-   * HTTP GET Request
-   */
-  GET,
+    /**
+     * HTTP GET Request
+     */
+    GET,
 
-  /**
-   * HTTP POST Request
-   */
-  POST,
+    /**
+     * HTTP POST Request
+     */
+    POST,
 
-  /**
-   * HTTP PUT Request
-   */
-  PUT,
+    /**
+     * HTTP PUT Request
+     */
+    PUT,
 
-  /**
-   * HTTP DELETE Request
-   */
-  DELETE
+    /**
+     * HTTP DELETE Request
+     */
+    DELETE
 }

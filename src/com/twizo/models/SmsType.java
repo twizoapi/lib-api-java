@@ -10,14 +10,14 @@ package com.twizo.models;
  */
 public enum SmsType {
 
-  /**
-   * Simple SMS type
-   */
-  SIMPLE,
+    /**
+     * Simple SMS type
+     */
+    SIMPLE,
 
-  /**
-   * Advanced SMS type
-   */
-  ADVANCED
+    /**
+     * Advanced SMS type
+     */
+    ADVANCED
 
 }

@@ -10,49 +10,49 @@ package com.twizo.models;
  */
 public class Balance {
 
-  /**
-   * Float, not null. The current credit balance of your wallet. Can be negative in certain
-   * situations.
-   */
-  private Float credit;
+    /**
+     * Float, not null. The current credit application of your wallet. Can be negative in certain
+     * situations.
+     */
+    private Float credit;
 
-  /**
-   * String, not null. This is a 3-digit ISO 4217 code of the currency of your wallet.
-   */
-  private String currencyCode;
+    /**
+     * String, not null. This is a 3-digit ISO 4217 code of the currency of your wallet.
+     */
+    private String currencyCode;
 
-  /**
-   * Integer, not null. The number of free verifications you have left for this month.
-   */
-  private Integer freeVerifications;
+    /**
+     * Integer, not null. The number of free verifications you have left for this month.
+     */
+    private Integer freeVerifications;
 
-  /**
-   * String, not null. The name of your wallet.
-   */
-  private String wallet;
+    /**
+     * String, not null. The name of your wallet.
+     */
+    private String wallet;
 
-  public Float getCredit() {
-    return credit;
-  }
+    public Float getCredit() {
+        return credit;
+    }
 
-  public String getCurrencyCode() {
-    return currencyCode;
-  }
+    public String getCurrencyCode() {
+        return currencyCode;
+    }
 
-  public Integer getFreeVerifications() {
-    return freeVerifications;
-  }
+    public Integer getFreeVerifications() {
+        return freeVerifications;
+    }
 
-  public String getWallet() {
-    return wallet;
-  }
+    public String getWallet() {
+        return wallet;
+    }
 
-  @Override
-  public String toString() {
-    return "Balance{" + "credit=" + credit +
-        ", currencyCode='" + currencyCode + '\'' +
-        ", freeVerifications=" + freeVerifications +
-        ", wallet='" + wallet + '\'' +
-        '}';
-  }
+    @Override
+    public String toString() {
+        return "Balance{" + "credit=" + credit +
+                ", currencyCode='" + currencyCode + '\'' +
+                ", freeVerifications=" + freeVerifications +
+                ", wallet='" + wallet + '\'' +
+                '}';
+    }
 }

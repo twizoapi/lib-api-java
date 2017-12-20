@@ -1,5 +1,7 @@
 package com.twizo.services.widget;
 
+import com.twizo.exceptions.TwizoJsonParseException;
+import com.twizo.exceptions.WidgetException;
 import com.twizo.models.WidgetSession;
 
 /**
@@ -12,12 +14,14 @@ import com.twizo.models.WidgetSession;
  */
 public interface VerificationWidgetService {
 
-  /**
-   * Parse widgetSession data received from the server to a WidgetSession object
-   *
-   * @param data data to parse
-   * @return WidgetSession instance
-   */
-  WidgetSession parseWidgetSession(String data);
+    /**
+     * Parse widgetSession data received from the server to a WidgetSession object
+     *
+     * @param data data to parse
+     * @return WidgetSession instance
+     * @throws WidgetException when something goes wrong during the process
+     * @throws TwizoJsonParseException when something goes wrong during JSON parsing
+     */
+    WidgetSession parseWidgetSession(String data) throws WidgetException, TwizoJsonParseException;
 
 }
